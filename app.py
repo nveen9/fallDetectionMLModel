@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
 import joblib
 import pandas as pd
 import numpy as np 
@@ -9,7 +8,6 @@ import datetime
 import time
 
 app = Flask(__name__)
-CORS(app)
 
 # Load trained model
 lrmodel, lrscaler = joblib.load('fall_detection_lrmodel.joblib')
@@ -396,5 +394,5 @@ def predictRf():
     except Exception as e:
         return jsonify({'error': str(e)})
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
